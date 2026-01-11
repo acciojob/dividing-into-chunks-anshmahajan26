@@ -2,17 +2,22 @@ const arr = [1, 2, 3, 4, 1, 0, 2, 2];
 
 const divide = (arr, n) => {
   // Write your code her
-	for(let i =0; i<arr.length; i++){
-		for(let j =1; j<arr.length; j++){
-			let sum =0;
-			for(let k=i; k<j; k++){
-				sum += arr[k];
-				if(sum <n){
-					console.log(arr[k]);
-				}
-			} 
-		}
-	}
+	let result = [];
+let chunk = [];
+let sum = 0;
+
+for (let x of arr) {
+  if (sum + x <= n) {
+    chunk.push(x);
+    sum += x;
+  } else {
+    result.push(chunk);
+    chunk = [x];
+    sum = x;
+  }
+}
+result.push(chunk);
+
 };
 
 const n = prompt("Enter n: ");
