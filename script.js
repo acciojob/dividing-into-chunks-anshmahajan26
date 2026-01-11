@@ -16,8 +16,9 @@ for (let x of arr) {
     sum = x;
   }
 }
+	
 result.push(chunk);
-
+  return result;  
 };
 
 const n = prompt("Enter n: ");
